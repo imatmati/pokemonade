@@ -1,0 +1,13 @@
+{
+  "name": "Twitter",
+  "plural": "Twitters",
+  "base": "Model",
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -35,5 +35,9 @@
   "Pokemon": {
     "dataSource": "mongo",
     "public": true
+  },
+  "Twitter": {
+    "dataSource": null,
+    "public": true
   }
 }

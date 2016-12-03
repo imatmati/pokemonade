@@ -6,7 +6,7 @@
             "@matchcase": "false",
             "@preservecase": "false",
             "@regex": "false",
-            "@wholeword": "false",
+            "@wholeword": true,
             "@wraparound": "true"
         }
     },
@@ -15,13 +15,13 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 261,
+        "@height": 208,
         "@maximized": "false",
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab1",
-                    "tab0"
+                    "tab0",
+                    "tab1"
                 ]
             },
             "name": "pane1",
@@ -45,7 +45,7 @@
                             "id": "devel_3",
                             "cwd": "",
                             "width": 1328,
-                            "height": 235
+                            "height": 182
                         }
                     },
                     "editorType": "terminal",
@@ -86,14 +86,14 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 5,
-            "@document": 6,
+            "@document": 13,
             "@form": 5,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
-            "@session": 5,
-            "@tab": 12,
-            "@undoManager": 6
+            "@session": 12,
+            "@tab": 13,
+            "@undoManager": 13
         }
     },
     "findinfiles": {
@@ -111,8 +111,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab5",
-            "tab0"
+            "tab0",
+            "tab6"
         ]
     },
     "panels": {
@@ -143,13 +143,15 @@
         }
     },
     "projecttree": {
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
-                "/server",
                 "/server/models",
-                "/server/boot"
+                "/server/boot",
+                "/node_modules/twitter/lib",
+                "/server"
             ]
         }
     },
@@ -164,6 +166,16 @@
         },
         "search": {
             "json()": [
+                "request_options",
+                "request",
+                "bases",
+                "rest_base",
+                "type for dataByType poison",
+                "typeStat {",
+                "typeStat",
+                "type for typeStat",
+                "type for dataByType",
+                "poison",
                 "\"),",
                 "types"
             ]
@@ -171,12 +183,16 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/server/boot/loadPokemons.js",
+            "focus": "/server/models/twitter.js",
             "meta": {
                 "accessList": [
+                    "tab6",
+                    "tab8",
+                    "tab12",
+                    "tab11",
                     "tab5",
-                    "tab7",
-                    "tab10"
+                    "tab9",
+                    "tab4"
                 ]
             },
             "name": "pane0",
@@ -186,8 +202,7 @@
                     "name": "tab5",
                     "path": "/server/boot/loadPokemons.js",
                     "className": [
-                        "tab5",
-                        "focus"
+                        "tab5"
                     ],
                     "document": {
                         "changed": false,
@@ -200,24 +215,23 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
-                    "name": "tab7",
-                    "path": "/result.json",
+                    "name": "tab4",
+                    "path": "/server/models/pokemon.json",
                     "className": [
-                        "tab7",
-                        "changed"
+                        "tab4"
                     ],
                     "document": {
-                        "changed": true,
+                        "changed": false,
                         "meta": {
-                            "timestamp": 1480756900915
+                            "timestamp": 1480793420013
                         },
                         "filter": true,
-                        "title": "result.json",
-                        "tooltip": "/result.json",
+                        "title": "pokemon.json",
+                        "tooltip": "/server/models/pokemon.json",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -225,45 +239,101 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab10",
-                    "path": "/list.json",
+                    "name": "tab6",
+                    "path": "/server/models/twitter.json",
                     "className": [
-                        "tab10",
-                        "changed"
+                        "tab6"
                     ],
                     "document": {
-                        "changed": true,
-                        "filter": true,
-                        "title": "list.json",
-                        "tooltip": "/list.json",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 6,
-                                    "column": 0
-                                },
-                                "end": {
-                                    "row": 6,
-                                    "column": 0
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 76,
-                                "mode": "ace/mode/json"
-                            }
-                        },
+                        "changed": false,
                         "meta": {
-                            "timestamp": 1480762333468
-                        }
+                            "timestamp": 1480798369688
+                        },
+                        "filter": true,
+                        "title": "twitter.json",
+                        "tooltip": "/server/models/twitter.json",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab8",
+                    "path": "/server/models/twitter.js",
+                    "className": [
+                        "tab8",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1480798338643
+                        },
+                        "filter": true,
+                        "title": "twitter.js",
+                        "tooltip": "/server/models/twitter.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab9",
+                    "path": "/package.json",
+                    "className": [
+                        "tab9"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1480795117199
+                        },
+                        "filter": true,
+                        "title": "package.json",
+                        "tooltip": "/package.json",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab11",
+                    "path": "/node_modules/twitter/lib/twitter.js",
+                    "className": [
+                        "tab11"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1480797656544
+                        },
+                        "filter": true,
+                        "title": "twitter.js",
+                        "tooltip": "/node_modules/twitter/lib/twitter.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab12",
+                    "path": "/node_modules/loopback/package.json",
+                    "className": [
+                        "tab12"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1480752197035
+                        },
+                        "filter": true,
+                        "title": "package.json",
+                        "tooltip": "/node_modules/loopback/package.json",
+                        "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
@@ -275,6 +345,8 @@
         }
     },
     "tree_selection": {
-        "json()": []
+        "json()": [
+            "/package.json"
+        ]
     }
 }

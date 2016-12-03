@@ -2,13 +2,13 @@
   "name": "Pokemon",
   "plural": "Pokemons",
   "base": "PersistedModel",
-  "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
     "name": {
       "type": "string",
+      "id": true,
       "required": true
     },
     "weight": {
