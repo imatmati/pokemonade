@@ -5,6 +5,7 @@ var client = new Client();
 module.exports = function(app) {
 
     var mongoDs = app.dataSources.mongo;
+    
     var comptePokemons = function(callback) {
         // get pokemons count
         console.log("chargement du compte de pokemons");
@@ -18,7 +19,7 @@ module.exports = function(app) {
     var chargementPokemons = function(count, callback) {
         console.log("chargement de la liste complète de pokemons");
         // get pokemons list
-        client.get("http://pokeapi.co/api/v2/pokemon/?limit=6", function(data, response) {
+        client.get("http://pokeapi.co/api/v2/pokemon/?limit=" + count, function(data, response) {
 
             callback(null, data.results);
         });
@@ -52,9 +53,9 @@ module.exports = function(app) {
     }
     var insertPokemons = function(pokemonsComplete, callback) {
         console.log("sauvegarde des informations de pokemons");
-
+        var tmp = "";
         var pokemonsToInsert = pokemonsComplete.map(function(pokemon) {
-            return {
+            var poke =  {
                 weight: pokemon.weight,
                 name: pokemon.name,
                 stats: pokemon.stats,
@@ -63,21 +64,27 @@ module.exports = function(app) {
                 sprites: pokemon.sprites
 
             };
+            tmp+=JSON.stringify(poke);
+            return poke;
         });
 
-
+        console.log ("================ TO INSERT ====================== "+tmp)
 
         mongoDs.automigrate('Pokemon', function(err) {
             if (err) return console.log(err);
 
             var Pokemon = app.models.Pokemon;
-            Pokemon.create(pokemonsToInsert, callback);
+            Pokemon.create(pokemonsToInsert, function(err, obj) {
+                console.log ("err",err);
+                console.log ("obj",obj);
+                callback(null, obj);
+            });
         });
 
 
     };
 
-    var statsPokemons = function(pokemons, callback) {
+    var statsPokemons = function(pokemons,callback) {
         console.log("sauvegarde des stats de types de pokemons");
         var dataByType = {};
         //collecte des infos par type
@@ -90,60 +97,103 @@ module.exports = function(app) {
                     }];
                 }
                 else {
-                  dataByType[type].push({
+                    dataByType[type].push({
                         stats: pokemon.stats
-                    }); 
+                    });
                 }
             })
         });
+        /*
+        dataByType {  poison: [ { stats: [Object] }, { stats: [Object] }, { stats: [Object] } ],
+        			  grass: [ { stats: [Object] }, { stats: [Object] }, { stats: [Object] } ],
+        			  fire: [ { stats: [Object] }, { stats: [Object] }, { stats: [Object] } ],
+        			  flying: [ { stats: [Object] } ] 
+        }
 
-
+        */
         // calcul des stats
-        var stats =[] ;
-        var types = Object.keys(dataByType);
+        var stats = {};
         var typeStat = {};
-        types.forEach(function(type) {
-            var listStats = dataByType[type];
-            typeStat[type]={};
-            listStats.forEach(function (data) {
-              data.forEach (function (d){        
-                  var name = d.stat.name; 
-                  var value = d.base_stat;
-                  if (!typeStat[type][name]) {
-                      typeStat[type][name] = name;
-                      typeStat[type][name+"Cnt"] = 1;
-                      
-                  }
-                  else {
-                      
-                      typeStat[type][name+"Cnt"] +=  1;
-                  }
-              });
+        Object.keys(dataByType).forEach(function(type) {
+            typeStat[type] = {};
+            // [ { stats: [Object] }, { stats: [Object] }, { stats: [Object] } ]
+
+            dataByType[type].forEach(function(data) {
+
+                data.stats.forEach(function(d) {
+                    var name = d.stat.name;
+                    var value = d.base_stat;
+
+                    if (!typeStat[type][name]) {
+                        typeStat[type][name] = {
+                            count: 1,
+                            val: value
+                        };
+                    }
+                    else {
+                        var precedent = typeStat[type][name];
+                        precedent.count += 1;
+                        precedent.val += value;
+                    }
+                });
             });
-            
+            /*
+            typeStat {"poison":{"speed":{"count":3,"val":185},"special-defense":{"count":3,"val":245},"special-attack":{"count":3,"val":245},"defense":{"count":3,"val":195},"attack":{"count":3,"val":193},"hp":{"count":3,"val":185}},
+            		  "grass":{"speed":{"count":3,"val":185},"special-defense":{"count":3,"val":245},"special-attack":{"count":3,"val":245},"defense":{"count":3,"val":195},"attack":{"count":3,"val":193},"hp":{"count":3,"val":185}},
+            		  "fire":{"speed":{"count":3,"val":245},"special-defense":{"count":3,"val":200},"special-attack":{"count":3,"val":249},"defense":{"count":3,"val":179},"attack":{"count":3,"val":200},"hp":{"count":3,"val":175}},
+            		  "flying":{"speed":{"count":1,"val":100},"special-defense":{"count":1,"val":85},"special-attack":{"count":1,"val":109},"defense":{"count":1,"val":78},"attack":{"count":1,"val":84},"hp":{"count":1,"val":78}}}
+            */
+
         });
-        
+
+        //calcul des stats
+        Object.keys(typeStat).forEach(function(type) {
+
+            //{"speed":{"count":3,"val":185},"special-defense":{"count":3,"val":245},"special-attack":{"count":3,"val":245},"defense":{"count":3,"val":195},"attack":{"count":3,"val":193},"hp":{"count":3,"val":185}},
+            var data = typeStat[type]
+            Object.keys(data).forEach(function(statName /*speed*/ ) {
+                // {"count":3,"val":185}
+                var statBeforeMean = data[statName];
+                var statsForType = stats[type] || {};
+                statsForType[statName] = Math.round(statBeforeMean.val / statBeforeMean.count);
+                stats[type] = statsForType;
+
+            });
+
+        });
+        console.log ("stats",stats);
         mongoDs.automigrate('Stat', function(err) {
             if (err) return console.log(err);
 
             var Stat = app.models.Stat;
-            Stat.create(stats, callback);
+            Stat.create({data:stats}, callback);
         });
-
 
     }
 
-    async.waterfall([comptePokemons, chargementPokemons, chargementInfosPokemons, insertPokemons],
-        function(err, result) {
-            if (err) {
-                console.log("Erreur", err);
-                process.exit(1);
+    if (process.env.RELOAD_POKEMON === 'REMOTE') {
+        console.log ("chargement distant");
+        async.waterfall([comptePokemons, chargementPokemons, chargementInfosPokemons, insertPokemons, statsPokemons],
+            function(err, result) {
+                if (err) {
+                    console.log("Erreur", err);
+                    process.exit(1);
+                }
+                console.log("Chargement effectué");
             }
-            console.log("Chargement effectué");
-        }
+    
+        );
 
-    );
-
-
+    }
+    else if (process.env.RELOAD_POKEMON === 'LOCAL') {
+       console.log ("chargement local");
+       async.waterfall([function (callback){
+            var pokemonsToInsert = require ("../pokemon.json");
+            console.log (pokemonsToInsert);
+           callback(null,pokemonsToInsert)},insertPokemons, statsPokemons ], function (err, results) {
+               if (err) return console.log (err);
+               console.log("Chargement effectué");
+       });
+    }
 
 }

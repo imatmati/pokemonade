@@ -6,16 +6,13 @@
             "@matchcase": "false",
             "@preservecase": "false",
             "@regex": "false",
-            "@wholeword": true,
+            "@wholeword": false,
             "@wraparound": "true"
         }
     },
-    "breakpoints": {
-        "json()": []
-    },
     "console": {
         "@expanded": true,
-        "@height": 208,
+        "@height": 255,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -36,16 +33,16 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1480752275013
+                            "timestamp": 1480538102194
                         },
                         "filter": true,
-                        "title": "node - \"wotan\"",
-                        "tooltip": "node - \"wotan\"",
+                        "title": "bash - \"wotan\"",
+                        "tooltip": "bash - \"wotan\"",
                         "terminal": {
-                            "id": "devel_3",
+                            "id": "devel_521",
                             "cwd": "",
                             "width": 1328,
-                            "height": 182
+                            "height": 229
                         }
                     },
                     "editorType": "terminal",
@@ -111,8 +108,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab0",
-            "tab6"
+            "tab5",
+            "tab0"
         ]
     },
     "panels": {
@@ -143,15 +140,12 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
-                "/server/models",
-                "/server/boot",
-                "/node_modules/twitter/lib",
-                "/server"
+                "/server",
+                "/server/models"
             ]
         }
     },
@@ -161,42 +155,51 @@
     "search-history": {
         "replace": {
             "json()": [
-                "\","
+                "\"name\"",
+                ",{ \"_id\" :"
             ]
         },
         "search": {
             "json()": [
-                "request_options",
-                "request",
-                "bases",
-                "rest_base",
-                "type for dataByType poison",
-                "typeStat {",
-                "typeStat",
-                "type for typeStat",
-                "type for dataByType",
-                "poison",
-                "\"),",
-                "types"
+                "comptePokemons",
+                "window"
             ]
         }
     },
     "tabs": {
         "json()": {
-            "focus": "/server/models/twitter.js",
+            "focus": "/server/models/pokemon.json",
             "meta": {
                 "accessList": [
-                    "tab6",
-                    "tab8",
                     "tab12",
-                    "tab11",
                     "tab5",
-                    "tab9",
-                    "tab4"
+                    "tab8",
+                    "tab4",
+                    "tab6"
                 ]
             },
             "name": "pane0",
             "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "/server/pokemon.json",
+                    "className": [
+                        "tab4"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1480848704425
+                        },
+                        "filter": true,
+                        "title": "pokemon.json",
+                        "tooltip": "/server/pokemon.json",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
                 {
                     "type": "tab",
                     "name": "tab5",
@@ -207,7 +210,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1480762272290
+                            "timestamp": 1480849414145
                         },
                         "filter": true,
                         "title": "loadPokemons.js",
@@ -219,39 +222,19 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab4",
-                    "path": "/server/models/pokemon.json",
-                    "className": [
-                        "tab4"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1480793420013
-                        },
-                        "filter": true,
-                        "title": "pokemon.json",
-                        "tooltip": "/server/models/pokemon.json",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
                     "name": "tab6",
-                    "path": "/server/models/twitter.json",
+                    "path": "/server/boot/authentication.js",
                     "className": [
                         "tab6"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1480798369688
+                            "timestamp": 1480752197328
                         },
                         "filter": true,
-                        "title": "twitter.json",
-                        "tooltip": "/server/models/twitter.json",
+                        "title": "authentication.js",
+                        "tooltip": "/server/boot/authentication.js",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -260,59 +243,18 @@
                 {
                     "type": "tab",
                     "name": "tab8",
-                    "path": "/server/models/twitter.js",
+                    "path": "/server/models/stat.json",
                     "className": [
-                        "tab8",
-                        "focus"
+                        "tab8"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1480798338643
+                            "timestamp": 1480849395404
                         },
                         "filter": true,
-                        "title": "twitter.js",
-                        "tooltip": "/server/models/twitter.js",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "tab9",
-                    "path": "/package.json",
-                    "className": [
-                        "tab9"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1480795117199
-                        },
-                        "filter": true,
-                        "title": "package.json",
-                        "tooltip": "/package.json",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab11",
-                    "path": "/node_modules/twitter/lib/twitter.js",
-                    "className": [
-                        "tab11"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1480797656544
-                        },
-                        "filter": true,
-                        "title": "twitter.js",
-                        "tooltip": "/node_modules/twitter/lib/twitter.js",
+                        "title": "stat.json",
+                        "tooltip": "/server/models/stat.json",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -321,22 +263,23 @@
                 {
                     "type": "tab",
                     "name": "tab12",
-                    "path": "/node_modules/loopback/package.json",
+                    "path": "/server/models/pokemon.json",
                     "className": [
-                        "tab12"
+                        "tab12",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1480752197035
+                            "timestamp": 1480800994196
                         },
                         "filter": true,
-                        "title": "package.json",
-                        "tooltip": "/node_modules/loopback/package.json",
+                        "title": "pokemon.json",
+                        "tooltip": "/server/models/pokemon.json",
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -346,7 +289,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/package.json"
+            "/server/models/pokemon.json"
         ]
     }
 }

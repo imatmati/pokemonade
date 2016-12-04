@@ -39,5 +39,9 @@
   "Twitter": {
     "dataSource": null,
     "public": true
+  },
+  "Stat": {
+    "dataSource": "mongo",
+    "public": true
   }
 }
