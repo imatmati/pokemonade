@@ -53,9 +53,9 @@ module.exports = function(app) {
     }
     var insertPokemons = function(pokemonsComplete, callback) {
         console.log("sauvegarde des informations de pokemons");
-        var tmp = "";
+
         var pokemonsToInsert = pokemonsComplete.map(function(pokemon) {
-            var poke =  {
+           return  {
                 weight: pokemon.weight,
                 name: pokemon.name,
                 stats: pokemon.stats,
@@ -64,19 +64,15 @@ module.exports = function(app) {
                 sprites: pokemon.sprites
 
             };
-            tmp+=JSON.stringify(poke);
-            return poke;
         });
 
-        console.log ("================ TO INSERT ====================== "+tmp)
+
 
         mongoDs.automigrate('Pokemon', function(err) {
             if (err) return console.log(err);
 
             var Pokemon = app.models.Pokemon;
             Pokemon.create(pokemonsToInsert, function(err, obj) {
-                console.log ("err",err);
-                console.log ("obj",obj);
                 callback(null, obj);
             });
         });
@@ -161,7 +157,7 @@ module.exports = function(app) {
             });
 
         });
-        console.log ("stats",stats);
+
         mongoDs.automigrate('Stat', function(err) {
             if (err) return console.log(err);
 
