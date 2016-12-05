@@ -30,6 +30,14 @@
         "object"
       ],
       "required": true
+    },
+    "thumbUp": {
+      "type": "number",
+      "required": false
+    },
+    "thumbDown": {
+      "type": "number",
+      "required": false
     }
   },
   "validations": [],

@@ -36,8 +36,8 @@
                             "timestamp": 1480538102194
                         },
                         "filter": true,
-                        "title": "bash - \"wotan\"",
-                        "tooltip": "bash - \"wotan\"",
+                        "title": "node - \"wotan\"",
+                        "tooltip": "node - \"wotan\"",
                         "terminal": {
                             "id": "devel_521",
                             "cwd": "",
@@ -83,14 +83,14 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 5,
-            "@document": 15,
+            "@document": 11,
             "@form": 5,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
-            "@session": 14,
-            "@tab": 15,
-            "@undoManager": 15
+            "@session": 10,
+            "@tab": 4,
+            "@undoManager": 11
         }
     },
     "findinfiles": {
@@ -108,7 +108,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab5",
+            "tab2",
             "tab0"
         ]
     },
@@ -161,6 +161,7 @@
         },
         "search": {
             "json()": [
+                "\"_id\"",
                 "comptePokemons",
                 "window"
             ]
@@ -168,118 +169,55 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/server/models/pokemon.json",
+            "focus": "/server/models/pokemon.js",
             "meta": {
                 "accessList": [
-                    "tab5",
-                    "tab6",
-                    "tab12",
-                    "tab8",
-                    "tab4"
+                    "tab2",
+                    "tab3"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab4",
-                    "path": "/server/pokemon.json",
+                    "name": "tab2",
+                    "path": "/server/models/pokemon.js",
                     "className": [
-                        "tab4"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1480848704425
-                        },
-                        "filter": true,
-                        "title": "pokemon.json",
-                        "tooltip": "/server/pokemon.json",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab5",
-                    "path": "/server/boot/loadPokemons.js",
-                    "className": [
-                        "tab5"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1480855741403
-                        },
-                        "filter": true,
-                        "title": "loadPokemons.js",
-                        "tooltip": "/server/boot/loadPokemons.js",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab6",
-                    "path": "/server/boot/authentication.js",
-                    "className": [
-                        "tab6"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1480752197328
-                        },
-                        "filter": true,
-                        "title": "authentication.js",
-                        "tooltip": "/server/boot/authentication.js",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab8",
-                    "path": "/server/models/stat.json",
-                    "className": [
-                        "tab8"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1480849395404
-                        },
-                        "filter": true,
-                        "title": "stat.json",
-                        "tooltip": "/server/models/stat.json",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab12",
-                    "path": "/server/models/pokemon.json",
-                    "className": [
-                        "tab12",
+                        "tab2",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1480800994196
+                            "timestamp": 1480977909127
                         },
                         "filter": true,
-                        "title": "pokemon.json",
-                        "tooltip": "/server/models/pokemon.json",
+                        "title": "pokemon.js",
+                        "tooltip": "/server/models/pokemon.js",
                         "ace": {}
                     },
                     "editorType": "ace",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab3",
+                    "path": "/server/models/twitter.js",
+                    "className": [
+                        "tab3"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1480798339056
+                        },
+                        "filter": true,
+                        "title": "twitter.js",
+                        "tooltip": "/server/models/twitter.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -289,7 +227,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/README.md"
+            "/server/models/twitter.js"
         ]
     }
 }
