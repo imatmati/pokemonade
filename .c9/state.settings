@@ -28,8 +28,7 @@
                     "name": "tab0",
                     "path": "",
                     "className": [
-                        "tab0",
-                        "focus"
+                        "tab0"
                     ],
                     "document": {
                         "changed": false,
@@ -84,14 +83,14 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 5,
-            "@document": 4,
+            "@document": 5,
             "@form": 5,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
-            "@session": 3,
-            "@tab": 4,
-            "@undoManager": 4
+            "@session": 4,
+            "@tab": 5,
+            "@undoManager": 5
         }
     },
     "findinfiles": {
@@ -109,8 +108,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab0",
-            "tab2"
+            "tab4",
+            "tab0"
         ]
     },
     "panels": {
@@ -146,7 +145,7 @@
             "json()": [
                 "/",
                 "/server",
-                "/server/models"
+                "/server/boot"
             ]
         }
     },
@@ -170,9 +169,10 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/server/models/pokemon.js",
+            "focus": "/server/boot/loadPokemons.js",
             "meta": {
                 "accessList": [
+                    "tab4",
                     "tab2",
                     "tab3"
                 ]
@@ -184,13 +184,12 @@
                     "name": "tab2",
                     "path": "/server/models/pokemon.js",
                     "className": [
-                        "tab2",
-                        "focus"
+                        "tab2"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1481057459790
+                            "timestamp": 1481059525525
                         },
                         "filter": true,
                         "title": "pokemon.js",
@@ -198,7 +197,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -219,6 +218,27 @@
                     },
                     "editorType": "ace",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "/server/boot/loadPokemons.js",
+                    "className": [
+                        "tab4",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1480855741501
+                        },
+                        "filter": true,
+                        "title": "loadPokemons.js",
+                        "tooltip": "/server/boot/loadPokemons.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -228,7 +248,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/server/models/twitter.js"
+            "/server/boot/loadPokemons.js"
         ]
     }
 }
