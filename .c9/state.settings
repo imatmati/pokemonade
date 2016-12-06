@@ -28,7 +28,8 @@
                     "name": "tab0",
                     "path": "",
                     "className": [
-                        "tab0"
+                        "tab0",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -83,14 +84,14 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 5,
-            "@document": 11,
+            "@document": 4,
             "@form": 5,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
-            "@session": 10,
+            "@session": 3,
             "@tab": 4,
-            "@undoManager": 11
+            "@undoManager": 4
         }
     },
     "findinfiles": {
@@ -108,8 +109,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab2",
-            "tab0"
+            "tab0",
+            "tab2"
         ]
     },
     "panels": {
@@ -189,7 +190,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1480977909127
+                            "timestamp": 1481057459790
                         },
                         "filter": true,
                         "title": "pokemon.js",

@@ -2,9 +2,29 @@
 var async = require ("async");
 
 module.exports = function(Pokemon) {
+    
+    
+    Pokemon.likes = function (callback) {
+        Pokemon.find({where: {
+           "$or":[ {thumbUp : { '$gt' : 0 }}, {thumbDown : { '$gt' : 0 }}]
+        }},function(err, result) {
+            var ret = result.map(function (pokemon) {
+                return {
+                    name : pokemon.name,
+                    img : pokemon.sprites.front_default,
+                    thumbUp: pokemon.thumbUp ? pokemon.thumbUp : 0,
+                    thumbDown : pokemon.thumbDown ? pokemon.thumbDown : 0
+                }  
+            })
+            callback(null,ret);
+        })
+    }
 
+    Pokemon.remoteMethod ("likes", {
+        returns: {arg: 'likes', type: 'array'}, http : { verb : 'get'}
+    })
     Pokemon.thumbs = function (name, thumbUp, thumbDown, callback) {
-        console.log ("name, thumbUp, thumbDown", name, thumbUp, thumbDown)
+       
         async.waterfall([
             function (cb) {
                 
