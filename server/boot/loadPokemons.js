@@ -181,11 +181,10 @@ module.exports = function(app) {
         );
 
     }
-    else /*if (process.env.RELOAD_POKEMON === 'LOCAL')*/ {
+    else if (process.env.RELOAD_POKEMON === 'LOCAL') {
        console.log ("chargement local");
        async.waterfall([function (callback){
             var pokemonsToInsert = require ("../pokemon.json");
-            console.log (pokemonsToInsert);
            callback(null,pokemonsToInsert)},insertPokemons, statsPokemons ], function (err, results) {
                if (err) return console.log (err);
                console.log("Chargement effectué");

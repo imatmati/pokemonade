@@ -44,5 +44,17 @@ module.exports = function(Pokemon) {
     Pokemon.remoteMethod ("thumbs", {
         accepts: [ { arg: 'name', type: 'string'}, { arg: 'thumbUp', type: 'number'}, { arg: 'thumbDown', type: 'number'}]
     })
-   
+    
+    Pokemon.names = function (callback) {
+        Pokemon.find({ fields: {name: true} },
+        function(err, result) {
+            var ret = result.map(function (data) {
+                return data.name;
+            })
+            callback(null,ret);
+        })
+    }
+    Pokemon.remoteMethod ("names", {
+       returns: {arg: 'names', type: 'array'}, http : { verb : 'get'}
+    })
 };
