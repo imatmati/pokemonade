@@ -41,7 +41,7 @@
                         "terminal": {
                             "id": "devel_521",
                             "cwd": "",
-                            "width": 1318,
+                            "width": 1328,
                             "height": 229
                         }
                     },
@@ -108,7 +108,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab2",
+            "tab5",
             "tab0"
         ]
     },
@@ -140,15 +140,14 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 6601,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
-                "/server",
                 "/server/boot",
                 "/server/client",
-                "/node_modules"
+                "/client"
             ]
         }
     },
@@ -172,12 +171,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/server/models/pokemon.js",
+            "focus": "/server/datasources.json",
             "meta": {
                 "accessList": [
+                    "tab5",
                     "tab2",
                     "tab4",
-                    "tab5",
                     "tab3"
                 ]
             },
@@ -188,13 +187,12 @@
                     "name": "tab2",
                     "path": "/server/models/pokemon.js",
                     "className": [
-                        "tab2",
-                        "focus"
+                        "tab2"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1481059526047
+                            "timestamp": 1481133469445
                         },
                         "filter": true,
                         "title": "pokemon.js",
@@ -202,7 +200,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -275,7 +273,8 @@
                     "name": "tab5",
                     "path": "/server/datasources.json",
                     "className": [
-                        "tab5"
+                        "tab5",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -288,7 +287,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
